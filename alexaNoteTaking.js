@@ -11,7 +11,7 @@ var handlers = {
   
   "LaunchRequest": function () {
     this.response.speak("Leave a note.").listen("note"); 
-    /// this.response.speak("Alexa take a note.").listen("note"); 
+    /// this.response.speak("Alexa take a note").listen("note"); 
     this.emit(":responseReady");
    }
       //leave note privately
@@ -28,16 +28,16 @@ var handlers = {
    //handle the note leaving(last step)
    "noteLeaving": function(){
     this.response.speak("Your note have been leaved ")
-    /// this.response.speak("OK, saving your note.")
+    /// this.response.speak("OK saving your note")
    }
 
   'LanguageIntent': function () {
     var noteLeaving = this.event.request.intent.slots.language.value;
     this.response.speak("OK, public or private");
-    /// this.response.speak("Public or private?");
+    /// this.response.speak("Public or private");
     if(noteLeaving=="public"){
       this.response.speak("OK, leave a note publicly, what is your note?");
-      /// this.response.speak("OK, what is your note?");
+      /// this.response.speak("OK what is your note");
       this.emit(':responseReady');
       noteLeaving();
     }else if(noteLeaving=="private"){
@@ -47,7 +47,7 @@ var handlers = {
       privateNode();
     }else{
       this.response.speak("I cannot understand you, please try again");
-      /// this.response.speak("“I am sorry, I do not recognize that name. Please try again to say the name more clearly or use a different name in the database. What is your name?”");
+      /// this.response.speak("“I am sorry I do not recognize that name. Please try again to say the name more clearly or use a different name in the database. What is your name?”");
       this.emit(':responseReady');
     }
     //enter this if it is private note
