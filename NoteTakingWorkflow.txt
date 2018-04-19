@@ -1,0 +1,34 @@
+User: "Alexa, take a note."
+Alexa: "OK, public or private?"
+IF (User: "Public")
+{
+    Alexa: "OK, what is your note?"
+    User: "Insert a note here."
+    Alexa: "OK, saving your note!"
+}
+ELSE (User: "Private")
+{
+    Alexa: "OK, What is your name?"
+    User: "UserName"
+    IF (Alexa matches username)
+    {
+        Alexa: "UserName is found! What is your password?"
+        User: "Password"
+        IF (Password matches users password)
+        {
+            "Hello UserName! You have X notes."
+            for note in notes
+            {
+                read(note)
+            }
+        }
+        ELSE
+        {
+
+        }
+    }
+    ELSE
+    {
+
+    }
+}
